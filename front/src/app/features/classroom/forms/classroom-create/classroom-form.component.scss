@@ -1,0 +1,42 @@
+
+.select {
+    display: table;
+    width: 100%;
+}
+
+.mat-mdc-dialog-container {
+    background-color:white;
+}
+
+
+.mat-mdc-dialog-container .mdc-dialog__content {
+    color: black;
+}
+
+.ng-star-inserted{
+    color: rgb(219, 27, 27);
+}
+
+.form-label{
+    color: black;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__title {
+    color: black;
+}
+
+.btn-secondary {
+    color: rgb(124, 120, 120);
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #ffffff;
+    --bs-btn-border-color: #929292;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #757575;
+    --bs-btn-hover-border-color: #a1a1a1;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #ababab;
+    --bs-btn-active-border-color: #9c9c9c;
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #5f5f60;
+    --bs-btn-disabled-border-color: #7d7d7d;
+}

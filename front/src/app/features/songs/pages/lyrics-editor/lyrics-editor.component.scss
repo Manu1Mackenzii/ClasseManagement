@@ -1,0 +1,46 @@
+.add-song-part {
+    border: 1px dotted var(--color-mid-grey-600);
+}
+
+.add-song-part:hover {
+    background-color: var(--color-grey-input);
+}
+
+.lyrics-part-title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.chord-editor-pre {
+    background: #183153 !important;
+    color: #f0f1f3;
+    // height: 100%;
+}
+
+.chord-editor-preview {
+    background: #f0f1f3;
+    padding: 16px;
+    border-radius: 5px;
+}
+
+.chord-card {
+    background: #fff;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 0 4px 16px rgba(84,84,84,.12);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: Manrope;
+    font-size: 13px;
+    font-weight: 700;
+    height: 73px;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    margin-right: 16px;
+    padding: 12px 10px 12px 12px;
+    margin-bottom: 16px;
+    width: 136px;
+}

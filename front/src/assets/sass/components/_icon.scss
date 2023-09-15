@@ -1,0 +1,45 @@
+.icon {
+    &-2x {
+        font-size: 20px;
+    }
+    &-3x {
+        font-size: 24px;
+    }
+}
+
+/**
+* SVG icons
+*/
+.svg-icon {
+
+    svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    &-2x svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    &-3x svg {
+        width: 24px;
+        height: 24px;
+    }
+    &-4x svg {
+        width: 32px;
+        height: 32px;
+    }
+    &-w-48 svg {
+        width: 48px;
+        height: auto;
+    }
+    &-h-24 svg {
+        height: 24px;
+        width: auto;
+    }
+    &-h-48 svg {
+        height: 48px;
+        width: auto;
+    }
+}

@@ -1,0 +1,85 @@
+<div *ngIf="classroom">
+    <div class="headaction">
+        <div class="usertitle">
+            <i class="fa-solid fa-user"></i>
+            &nbsp;Détails de la classe
+        </div>
+        <div class="btaction">
+            <button type="button" class="btn btn-primary" (click)="openform(classroom)">
+                <i class="fa-solid fa-edit"></i>
+                Modifier
+            </button>
+            &nbsp; 
+           
+            <button routerLink="../" type="button" class="btn btn-light">
+                <i class="fa-solid fa-arrow-left"></i>
+                Retour
+            </button>
+        </div>
+
+
+    </div>
+
+
+    <div class="menu-content-container-center container">
+
+
+        <div class="menu-content-container-center-right ng-star-inserted">
+            <div class="list list-unstyled">
+                <div class="detail">
+                    <i class="fa-solid fa-user"></i>&nbsp;
+                    <label>Nom:</label>
+                </div>
+                <p>{{ classroom.label }}</p>
+            </div>
+
+            <div class="detail">
+                <div style="display: flex;">
+                    <i class="fa-solid fa-list-numeric"></i>&nbsp;
+                    <label>Nombre de scéances:</label>
+                </div>
+                <p>{{ classroom.sceance }}</p>
+            </div>
+
+            <div class="detail">
+                <div style="display: flex;">
+                    <i class="fa-solid fa-list-numeric"></i>&nbsp;
+                    <label>Capacité:</label>
+                </div>
+                <p>{{ classroom.capacity }}</p>
+            </div>
+        </div>
+
+
+        <div class="menu-content-container-center-right ng-star-inserted">
+            <div class="list list-unstyled">
+
+                <div class="detail">
+                    <div style="display: flex;">
+                        <i class="fa-solid fa-user"></i>&nbsp;
+                        <label>Professeur:</label>
+                    </div>
+                    <p>{{ classroom.teachers }}</p>
+                </div>
+
+                <div class="detail">
+                    <div style="display: flex;">
+                        <i class="fa-solid fa-mail-bulk"></i>&nbsp;
+                        <label>Liste des étudiants:</label>
+                    </div>
+                    <p>{{ classroom.students}}</p>
+                </div> 
+
+
+                <div class="detail">
+                    <div style="display: flex;">
+                        <i class="fa-solid fa-music"></i>&nbsp;
+                        <label>Instruments enseignés:</label>
+                    </div>
+                    <p>{{ classroom.instruments }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
+       </div>

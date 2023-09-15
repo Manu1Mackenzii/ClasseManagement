@@ -1,0 +1,13 @@
+<div class="container pt-menu">
+
+    <h3 class="mb-3 mt-3">Tutoriels de piano</h3>
+    <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let course of tutorialList">
+            <app-course-card
+                [id]="course.id"
+                [title]="course.title" [description]="course.description"
+                [coverImageUrl]="course.coverImageUrl" [duration]="course.duration" [type]="course.type">
+            </app-course-card>
+        </div>
+    </div>
+</div>

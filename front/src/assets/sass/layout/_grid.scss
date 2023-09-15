@@ -1,0 +1,35 @@
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.px-9 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.py-9 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.h-100-min {
+    min-height: 100%;
+}
+
+.ag-grid-table {
+    height: 100% !important;
+    width: 100% !important;
+    min-height: 250px;
+}
+
+.ag-header {
+    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
+    z-index: 1;
+    border-bottom: none;
+}
+
+.grid-success-row {
+    background-color: #d7f7c2 !important;
+}

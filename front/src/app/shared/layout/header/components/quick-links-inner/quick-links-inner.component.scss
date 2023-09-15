@@ -1,0 +1,40 @@
+.qli-container {}
+
+.qli-header {
+    display: flex;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    align-items: center;
+    border-top-left-radius:6px;
+    border-top-right-radius: 6px;
+}
+
+.link-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--color-light-grey-500);
+    border-right: 1px solid var(--color-light-grey-500);
+    cursor: pointer;
+    text-decoration: none;
+
+    span {
+        color: var(--color-dark-grey-700);
+        font-weight: 600;
+    }
+
+    .svg-icon {
+        color: var(--color-bs-blue);
+    }
+}
+
+.link-card:hover {
+    background-color: #E4E6EF;
+}
+
+
+.logout-btn:hover {
+    color: var(--color-sfr-red) !important;
+}

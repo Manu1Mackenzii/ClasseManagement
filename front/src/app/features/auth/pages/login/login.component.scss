@@ -1,0 +1,27 @@
+.login-wrapper {
+    max-width: 420px;
+}
+
+.logo-md {
+    height: auto;
+    width: 62px;
+}
+
+.login-tabs {
+    width: 100%;
+    display: flex;
+
+    .tab-link {
+        flex: 1;
+        text-align: center;
+        padding-bottom: var(--p-2);
+        border-bottom: 2px solid var(--color-light-grey-500);
+        cursor: pointer;
+    }
+
+    .tab-link-active {
+        color: var(--color-black) !important;
+        border-bottom: 3px solid var(--color-black);
+        font-weight: 600;
+    }
+}

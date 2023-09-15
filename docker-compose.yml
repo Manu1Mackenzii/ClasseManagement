@@ -1,0 +1,45 @@
+version: "3"
+services: 
+  nestjs-api:
+    image: backend
+    # command: "npm install --force && npm run start:dev"
+    command: "npm run start:dev"
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./back-WS:/app:rw"
+    networks:
+      - appNetwork
+  
+  angular-front:
+    image: frontend
+    command: "npm start"
+    # command: "npm install --force && npm start"
+    env_file:
+      - .env
+    ports:
+      - "4200:4200"
+    volumes:
+      - "./front:/app:rw"
+    networks:
+      - appNetwork
+  
+volumes:
+  frontend:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: 'front/'
+  backWs:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: 'back-WS/'
+ 
+networks:
+  appNetwork:
+    driver: bridge

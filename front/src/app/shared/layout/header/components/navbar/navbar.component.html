@@ -1,0 +1,60 @@
+<nav id="head-nav" class="navbar navbar-expand-lg fixed-top app-navbar">
+    <div class="container">
+        <a class="navbar-brand me-3 app-logo" routerLink="{{titleUrl}}">{{title}}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <!-- Parcourir les options des menus (navbar) -->
+
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item ms-3 me-3" *ngFor="let menuItem of menuOptions"
+                    [class.navbar-item-active]="isSelected(menuItem, selectedMenu)">
+                    <a class="navbar-link" id="{{menuItem.id}}" (click)="openMenu(menuItem, $event)">
+                        {{menuItem.name | translate}}
+                        <span *ngIf="hasDropdown(menuItem)">
+                            &nbsp;
+                            <ng-container [ngSwitch]="isSelected(menuItem, selectedMenu)">
+                                <i *ngSwitchCase="false" class="fa-solid fa-caret-down"></i>
+                                <i *ngSwitchCase="true" class="fa-solid fa-caret-up"></i>
+                            </ng-container>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="d-flex">
+                <ul class="navbar-nav pe-4">
+                    
+                    <!-- If not logged -->
+                    <ng-container *ngIf="!authService.isLoggedIn()">
+                        <li class="nav-item pe-2">
+                            <!-- If link -->
+                            <a class="nav-link" routerLink="/auth/login">{{'navbar.SignIn' | translate}}</a>
+                        </li>
+                       
+                    </ng-container>
+                </ul>
+            </div>
+            <!-- Must be connected to see it -->
+            <ng-container *ngIf="authService.isLoggedIn()">
+                <div class="d-flex">
+                    <!-- Cart menu -->
+                    <app-cart-menu-item></app-cart-menu-item>
+                </div>
+                <div class="d-flex">
+                    <!-- Profile menu -->
+                    <app-profile-dropdown-menu></app-profile-dropdown-menu>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</nav>
+
+<!-- Sub menu-->
+<ng-container *ngIf="selectedMenu">
+    <app-menu-dropdown [menuItem]="selectedMenu" (onClose)="closeDropdown()">
+    </app-menu-dropdown>
+</ng-container>

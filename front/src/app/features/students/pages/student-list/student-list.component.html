@@ -1,0 +1,93 @@
+<div class="stripe-table-container">
+    <div class="h-100 d-flex flex-column flex-grow-1">
+        <div class="mt-3 mb-3">
+            <h1 class="title-lg" ><strong>Gestion des Etudiants</strong> </h1>
+            
+            <div class="d-flex justify-content-end">
+                <div class="ps-4">
+                    
+                    <div class="input-group filter-input">
+                        <div *ngIf="isItemSelected" class="btn btn-light">
+                          <!-- Voir un professeur -->
+                          <button
+                          class="btn btn-primary" title="Voir"
+                          [disabled]="!isItemSelected"
+                          (click)="goToDetail()">
+                          <i class="fa-solid fa-credit-card"></i>
+                          &nbsp;Voir l'étudiant 
+                      </button>
+
+                    &nbsp;
+                     
+                        <!-- Supprimer -->
+                   <button class="btn btn-light" title="Supprimer"
+                          [disabled]="!isItemSelected"
+                          (click)="deleteStudent()">
+                          <i class="fa-solid fa-trash"></i>
+                          &nbsp;Supprimer
+                  </button></div>
+
+                  &nbsp; 
+                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="actionsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                Actions sur les étudiant
+                            </button>
+                            
+                            <ul class="dropdown-menu" aria-labelledby="actionsDropdown">
+                                <li><button class="dropdown-item" title="Rafraichir" (click)="fetchAllData()"><i class="fa-solid fa-arrows-rotate"></i> Tout Rafraichir</button></li>
+                                <li><button class="dropdown-item" title="Ajouter un étudiant" (click)="openform()"><i class="fa-solid fa-credit-card"></i> Ajouter un étudiant</button></li>
+                                <!-- Ajoutez d'autres options de menu ici -->
+                            </ul>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-table-body d-flex flex-column flex-grow-1">
+            <nav class="pb-2">
+               
+                <div class="nav nav-tabs " id="nav-tab" role="tablist">
+                    
+                    <button
+                        class="nav-link active"
+                        id="nav-presentiel-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#nav-presentiel" type="button" role="tab"
+                        aria-controls="nav-presentiel"
+                        aria-selected="false">
+                        Tous les étudiants
+                    </button>
+                   
+                </div>
+            </nav>
+
+            <!-- TABS -->
+            <div class="tab-content flex-grow-1" id="nav-tabContent">
+
+                <!-- MGA Présentiel -->
+                
+                <div class="tab-pane fade show active ag-grid-table orders-table" id="nav-presentiel">
+                    <ag-grid-angular #presentielGrid
+                    style="width: 100%; height: 100%"
+                    class="ag-theme-alpine"
+                    [columnDefs]="columnDefs"
+                    [defaultColDef]="defaultColDef"
+                    [rowData]="presentielRawData$ | async"
+                    [rowSelection]="'single'"
+                    [animateRows]="true"
+                    [localeText]="localeFr"
+                    [pagination]="true"
+                    [paginationAutoPageSize]="true"
+                    (rowDataUpdated)="onDataUpdated()"
+                    (gridReady)="onGridReady($event)"
+                    (selectionChanged)="onSelectionChanged($event)"
+                    [rowSelection]="rowSelection"
+                    [rowData]="students"
+                    (cellClicked)="onCellClicked($event)">
+
+                 
+                    </ag-grid-angular>
+                </div>
+            </div>
+        </div>
+    </div>
+

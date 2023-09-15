@@ -1,0 +1,47 @@
+<section class="main-message-container pt-4 pb-4">
+    <div class="empty-div"></div>
+    <div class="text-container text-center">
+        <span class="text1 d-block">Apprenez à jouer en toute simplicité</span>
+        <span class="text2 d-block mt-2">avec MGA Tutorials</span>
+    </div>
+    <br>
+    <div class="btn-container text-center mt-4 mb-4 pb-4" *ngIf="!user">
+        <button class="btn-dimensions btn btn-lg btn-outline btn-outline-info d-inline-block mt-2"
+            routerLink="/auth/signup"
+            >Rejoindre</button>
+        &nbsp;&nbsp;
+        <button class="btn-dimensions btn btn-lg btn-outline-light d-inline-block mt-2"
+        routerLink="/auth/login">Se connecter</button>
+    </div>
+</section>
+
+
+<br>
+<br>
+
+<!-- Video de presentation -->
+<section>
+    <div class="row">
+        <div class="offset-md-2 col-md-8 pt-4 pb-4">
+            <div class="ratio ratio-16x9">
+                <iframe class="embed-responsive-item  video-iframe"
+                    src="https://f.vimeocdn.com/_videos/home/desktop-masthead-720p-2.mp4" width="640" height="360"
+                    frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen
+                    allow="autoplay; encrypted-media"></iframe>
+            </div>
+
+            <br>
+            <div class="text-center mt-4 ps-4 pe-4">
+                <h3>
+                    Notre plateforme vous permet de réaliser vos idées en actions. Pratiquez, organisez, recherchez et partagez vos efforts au quotidien.
+                </h3>
+                <br>
+                <h3 class="mt-2">MGA Tutorials, apprendre devient facile.</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<br>
+<br>
+<br>

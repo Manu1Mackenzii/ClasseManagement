@@ -1,0 +1,88 @@
+button.btn.btn-secondary {
+    margin-left: 40%;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #9098e0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    height: 500px;
+    overflow-y: auto;
+}
+
+.popup h2 {
+    font-size: 2 rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.popup label {
+    font-weight: bold;
+}
+
+.popup p {
+    margin-bottom: 8px;
+}
+html, body {
+    height: 100%;
+    overflow-y: auto; /* Affiche la barre de défilement uniquement lorsque nécessaire */
+  }
+  td {
+    font-size: small;
+}
+th {
+    text-wrap: nowrap;
+}
+a.btn.btn-primary {
+    text-wrap: nowrap;
+}
+
+h1.title-lg {
+    color: black;
+}
+
+
+
+.stripe-table-container {
+    height: calc(100vh - var(--navbar-height));
+}
+
+.table-container {
+    flex: 1;
+}
+
+.orders-table {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.filter-input button {
+    border-radius: 2px !important;
+}
+
+.input-group {
+    display: table;
+}
+
+.btn.btn-light.ng-star-inserted{
+    background-color: #ffffff;
+    border-color: white;
+}
+
+.mat-mdc-dialog-container {
+  
+    margin-top: 60px;
+    margin-bottom: 50px;
+}
+
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+    background-color: white;
+}

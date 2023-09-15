@@ -1,0 +1,22 @@
+<div class="qli-container">
+
+    <!-- <div class="qli-header px-9 py-9" [style.background-image]="'url(assets/media/misc/menu-header-bg.jpg)'">
+        <h5 class="text-white fw-bold mb-3">{{'navbar.Hello' | translate}} {{title}}</h5>
+    </div> -->
+
+    <div class="row g-0">
+        <div class="col-6" *ngFor="let link of menuLinks">
+            <a class="link-card" routerLink="{{link.url}}">
+                <span [inlineSVG]="link?.icon || ''" class="text-primary svg-icon-4x"></span>
+                <span class="pt-2">{{link.label | translate}}</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="py-2 text-center border-top">
+        <a routerLink="{{footerLink.url}}" class="btn btn-color-gray-600 btn-active-color-primary logout-btn">
+            {{footerLink.label | translate}}
+            <i class="{{footerLink.icon}}"></i>
+        </a>
+    </div>
+</div>

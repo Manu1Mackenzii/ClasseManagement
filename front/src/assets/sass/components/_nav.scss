@@ -1,0 +1,12 @@
+
+/** Surcharge des classes bootstrap **/
+
+.nav-tabs .nav-link.active {
+    background: var(--color-black);
+    border-color: var(--color-black);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom: 0 !important;
+    color: white;
+    font-weight: 500;
+}

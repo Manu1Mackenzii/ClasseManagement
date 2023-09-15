@@ -1,0 +1,21 @@
+@media (min-width: 1400px) {
+    .menu-content-wrapper {
+        width: 1230px !important;
+        border-radius: 0 0 16px 16px;
+    }
+}
+
+.navbar-link {
+    cursor: pointer;
+    display: block;
+    font-size: var(--font-size-navbar);
+    text-decoration: none;
+}
+
+.nav-item a {
+    color: var(--color-navbar-link) !important;
+
+    span > i {
+        font-size: var(--font-size-11);
+    }
+}

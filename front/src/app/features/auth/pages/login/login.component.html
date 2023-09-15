@@ -1,0 +1,27 @@
+<div class="container h-100 d-flex justify-content-center mb-3 pt-menu">
+
+    <div class="login-wrapper mt-3">
+        <br><br>
+        <div class="text-center mb-3">
+            <img src="assets/media/logos/95461.png" class="logo-md mb-3" alt="">
+            <p *ngIf="isSelected(LOGIN_TAB)" class="text-muted mb-3">
+                {{"login.ConnectToYourAccount" | translate}}</p>
+            <p *ngIf="isSelected(REGISTER_TAB)" class="text-muted mb-3">
+                {{"login.RegisterYourAccount" | translate}}</p>
+        </div>
+
+        <div class="tabs mb-3">
+            <span
+                class="tab-link text-muted"
+                [class.tab-link-active]="isSelected(LOGIN_TAB)"
+                (click)="setTab(LOGIN_TAB)"
+                >{{"login.SignIn" | translate}}</span>
+           
+        </div>
+
+        <ng-container [ngSwitch]="selectedTab">
+            <app-login-form *ngSwitchCase="LOGIN_TAB"></app-login-form>
+        </ng-container>
+
+    </div>
+</div>

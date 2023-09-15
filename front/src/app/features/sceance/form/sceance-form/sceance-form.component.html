@@ -1,0 +1,37 @@
+<div class="mat-mdc-dialog-container">
+
+    <mat-card-title>
+        <h2 mat-dialog-title>
+            Sceance Management</h2>
+    </mat-card-title>
+
+    <mat-dialog-content>
+
+
+        <form [formGroup]="form">
+
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Sceance</label>
+                <!-- <select class="select" formControlName="label">
+                    <option value="" disabled selected>Select a music classroom</option>
+                    <option *ngFor="let classroom of musicClassrooms" [value]="classroom.name">{{ classroom.name }}</option>
+                  </select> -->
+
+                <input type="text" class="form-control" formControlName="label" placeholder="Sceance" required>
+             
+
+
+
+
+
+            </div>
+        </form>
+
+    </mat-dialog-content>
+    <mat-card-footer>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="save()">Enregistrer</button>
+            <button type="button" class="btn btn-light" (click)="cancel()">Fermer</button>
+        </div>
+    </mat-card-footer>
+</div>

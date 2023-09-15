@@ -1,0 +1,36 @@
+<div class="container h-100  mb-3 pt-menu">
+
+    <div style="text-align:center">
+        <h1>
+            Sceances Management
+        </h1>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>Nom </th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of sceances" [class.selected]="item === selectedSceance" (click)="selectSceance(item)">
+
+                <td>{{ item.label }}</td>
+
+                <td>
+
+                    <!-- <button (click)="addClassroom()" class="btn btn-primary">Ajouter</button>  -->
+                    <td><a (click)="deleteSceance(item)" class="btn btn-danger">Supprimer</a></td>
+                    <td><a (click)="openform(item)" class="btn btn-info">Modifier</a></td>
+                    <!-- <button mat-raised-button (click)="selectClassroom(item)" color="secondary">Selectionner la classe</button> -->
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- <button type="button" class="btn btn-primary" (click)="openModal()">Ajouter une classe</button> -->
+<button class="btn btn-secondary" (click)="openform()">Ajouter une scéance</button>

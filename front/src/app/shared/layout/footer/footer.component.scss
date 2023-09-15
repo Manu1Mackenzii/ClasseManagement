@@ -1,0 +1,66 @@
+.footer-section {
+    background-color: var(--bg-dark);
+}
+
+.footer-container {
+    background-color: var(--bg-dark);
+    color: #d8d8d8;
+    padding: 3rem;
+}
+
+.col-container {
+    padding-top: 16px;
+}
+
+h3 {
+    font-size: 20px;
+    line-height: 2.8rem;
+}
+
+li {
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+li a {
+    color: inherit !important;
+    text-decoration: inherit !important;
+}
+
+.icon {
+    font-size: 16px;
+    color: #28acdd;
+}
+
+.fb-icon,
+.yt-icon,
+.insta-icon {
+    font-size: 32px;
+    margin: 8px;
+}
+
+.fb-icon {
+    color: #1877f2;
+}
+
+.yt-icon {
+    color: #f00;
+}
+
+.insta-icon {
+    color: #ec6a00;
+}
+
+.icon-rsx {
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+.small-text-block {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.golden-sign {
+    color: goldenrod;
+}

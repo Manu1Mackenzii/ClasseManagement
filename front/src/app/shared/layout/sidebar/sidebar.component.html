@@ -1,0 +1,31 @@
+<div class="mt-3 me-3 ms-3">
+    <!-- Block -->
+    <div class="links-block mb-3" *ngFor="let linksBlock of menuOptions">
+        <div class="mb-2 sb-section-title">
+            <span class="nav-item">{{ linksBlock.name | translate }}</span>
+        </div>
+        <!-- Link items -->
+        <ul class="nav flex-column">
+            <li *ngFor="let item of linksBlock.dropdowns"
+                class="nav-item link-item mt-2"
+                id="{{item.id}}"
+                [class.text-muted]="item?.disabled"
+                [class.link-item-active]="isSelectedItem(item.id)"
+                (click)="selectItem(item)"
+                >
+                <a class="nav-link">
+                    <!-- Icon -->
+                    <span *ngIf="item.icon">
+                        <i [ngClass]="item.icon"></i>&nbsp;&nbsp;
+                    </span>
+                    <!-- Label -->
+                    {{ item.name  | translate }}
+                    <!-- If disabled -->
+                    <small *ngIf="item.disabled">
+                        &nbsp;<i class="fa-solid fa-lock"></i>
+                    </small>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

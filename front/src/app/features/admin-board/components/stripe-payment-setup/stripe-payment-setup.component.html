@@ -1,0 +1,194 @@
+<div class="d-flex flex-column">
+    <div class="modal-header">
+        <h3 class="modal-title">Configuration du paiment Stripe</h3>
+    </div>
+
+    <div class="modal-body">
+
+        <!-- Order info -->
+        <h3 class="title-md">Infos sur la commande</h3>
+
+        <div class="text-group mb-3">
+            <div class="text-group-item">
+                <label>Numéro de commande</label>
+                <span>{{orderData.order_id}}</span>
+            </div>
+            <div class="text-group-item">
+                <label>Statut de la commande</label>
+                <span>{{orderData.order_status}}</span>
+            </div>
+            <div class="text-group-item">
+                <label>date_created</label>
+                <span>{{orderData.date_created}}</span>
+            </div>
+
+            <div class="text-group-item">
+                <label>Client</label>
+                <span>{{orderData.first_name + ' ' + orderData.last_name}}</span>
+            </div>
+            <div class="text-group-item">
+                <label>Email</label>
+                <span>{{orderData.email}}</span>
+            </div>
+            <div class="text-group-item">
+                <label>Téléphone</label>
+                <span>{{orderData.phone_number}}</span>
+            </div>
+
+            <div class="text-group-item">
+                <label>ID Client Stripe</label>
+                <span>{{orderData.stripe_customer_id}}</span>
+            </div>
+        </div>
+
+
+        <!-- Infos sur la ligne -->
+
+        <h3 class="title-md">Ligne produit du panier</h3>
+
+        <div class="text-group mb-3">
+
+            <div class="text-group-item">
+                <label>product_id</label>
+                <span>{{orderData.product_id}}</span>
+            </div>
+            <div class="text-group-item">
+                <label>variation_id</label>
+                <span>{{orderData.variation_id}}</span>
+            </div>
+            <div class="text-group-item">
+                <label>product_name</label>
+                <span>{{orderData.product_name}}</span>
+            </div>
+            <div class="text-group-item">
+                <label>quantity</label>
+                <span>{{orderData.quantity}}</span>
+            </div>
+            <div class="text-group-item">
+                <label>subtotal</label>
+                <span>{{orderData.subtotal}}</span>
+            </div>
+            <div class="text-group-item">
+                <label>total</label>
+                <span>{{orderData.total}}</span>
+            </div>
+            <div class="text-group-item">
+                <label>tax</label>
+                <span>{{orderData.tax}}</span>
+            </div>
+
+        </div>
+
+        <!-- Total et coupons -->
+
+        <h3 class="title-md">Coupons et discounts</h3>
+
+        <div class="text-group mb-3">
+            <div class="text-group-item">
+                <label>order_total</label>
+                <span>{{orderData.order_total}}</span>
+            </div>
+            <div class="text-group-item">
+                <label>order_total_tax</label>
+                <span>{{orderData.order_total_tax}}</span>
+            </div>
+            <div class="text-group-item">
+                <label>coupons_discount</label>
+                <span>{{orderData.coupons_discount}}</span>
+            </div>
+            <div class="text-group-item">
+                <label>coupons_discount_tax</label>
+                <span>{{orderData.coupons_discount_tax}}</span>
+            </div>
+            <div class="text-group-item">
+                <label>coupons</label>
+                <span>{{orderData.coupons}}</span>
+            </div>
+        </div>
+
+        <!-- Tags -->
+
+        <h3 class="title-md">Les TAGS</h3>
+
+        <div class="text-group mb-3">
+            <div class="text-group-item">
+                <label>formule_duo <small>(deux produits achetés)</small></label>
+                <span>{{orderData.formule_duo}}</span>
+            </div>
+            <div class="text-group-item">
+                <label>stripe_product_meta</label>
+                <span>{{orderData.stripe_product_meta}}</span>
+            </div>
+            <div class="text-group-item">
+                <label>Nom du produit Stripe</label>
+                <span>{{productName}}</span>
+            </div>
+            <div class="text-group-item">
+                <label>stripe_subscription_meta</label>
+                <span>{{orderData.stripe_subscription_meta}}</span>
+            </div>
+        </div>
+
+        
+        <!-- Choix de la variation -->
+
+        <h3 class="title-md">Options de variation et de paiement</h3>
+
+        <div class="text-group mb-3">
+            <div class="text-group-item">
+                <label>product_name</label>
+                <span>{{orderData.product_name}}</span>
+            </div>
+            <div class="text-group-item">
+                <label>payment_options</label>
+                <span>{{orderData.payment_options}}</span>
+            </div>
+            <div class="text-group-item">
+                <label>class_level / class_day_hour</label>
+                <span>{{orderData.class_level}} / {{orderData.class_day_hour}}</span>
+            </div>
+        </div>
+
+        <!-- Select -->
+        <div class="mb-3 row">
+            <span class="d-block col-form-label">
+                Choisissez un produit Stripe
+                <app-spin-loader [loading]="productsLoading"></app-spin-loader>
+            </span>
+            <div class="d-block">
+                <select class="form-select" [(ngModel)]="productId">
+                    <option value=""></option>
+                    <option [value]="product.id" *ngFor="let product of stripeProducts">
+                        {{ product.name }}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Error display -->
+        <div class="card card-body bg-warning text-center" *ngIf="errors || productName">
+            <p class="card-text" *ngIf="errors">
+                {{errors}}
+            </p>
+            <p class="card-text" *ngIf="productName">
+                Le paiement automatique sur cette commande est déjà configuré. Si vous souhaiter remplacer, veuillez supprimer celui en cours.
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer Buttons -->
+
+    <div class="modal-footer">
+        <button (click)="close()" class="btn btn-outline-secondary">Fermer</button>
+        &nbsp;
+        <button *ngIf="!productName"
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="submitLoading || productsLoading || !productId"
+            (click)="setupPayment()">
+            Valider
+            <app-spin-loader [loading]="submitLoading"></app-spin-loader>
+        </button>
+    </div>
+
+</div>

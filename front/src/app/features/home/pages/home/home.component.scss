@@ -1,0 +1,34 @@
+
+$font-size: calc(32px + 38 * ((100vw - 375px) / 1545));
+
+.main-message-container {
+    background: rgb(18, 18, 18);
+    overflow: hidden;
+    width: 100%;
+}
+
+.empty-div {
+    padding: 60px 0px 60px
+}
+
+.text1 {
+    font-size: $font-size;
+    line-height: 1.2;
+    color: rgb(251, 113, 69);
+}
+
+.text2 {
+    font-size: $font-size;
+    line-height: 1.2;
+    color: white;
+}
+
+.btn-dimensions {
+    padding: 28px 40px;
+    font-size: 24px;
+    border-radius: 7px;
+}
+
+.video-iframe {
+    border-radius: 16px;
+}

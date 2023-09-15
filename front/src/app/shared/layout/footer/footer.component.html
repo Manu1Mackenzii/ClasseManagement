@@ -1,0 +1,103 @@
+<section class="footer-section">
+
+    <div class="container footer-container">
+
+        <div class="row">
+            <div class="col-md-3 col-sm-12 col-container">
+
+                <h3 class="color-primary">{{ 'footer.Categories' | translate }}</h3>
+                <ul class="list-unstyled">
+                    <li *ngFor="let category of categoryList$|async">
+                        <a [routerLink]="'/search'" [queryParams]="{q: category.name}">{{ translate(category.translationCode) }}</a>
+                    </li>
+                </ul>
+                <div class="row">
+                    <h3 class="color-primary">{{ 'Mobile_Apps' | translate }}</h3>
+                    <div class="col">
+                        <img src="assets/media/logos/goole-play.svg" height="48" alt="">
+                    </div>
+                    <div class="col mt-4">
+                        <img src="assets/media/logos/ios.svg" height="48" alt="">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-3 col-sm-12 col-container">
+                <h3 class="color-primary">{{ 'footer.About' | translate }}</h3>
+                <ul class="list-unstyled">
+                    <li><a [routerLink]="'/about-mga'">{{ 'About_MGA' | translate }}</a></li>
+                    <li><a href="#">{{ 'footer.PrivacyPolicy' | translate }}</a></li>
+                    <li><a href="#">{{ 'footer.TermsOfService' | translate }}</a></li>
+                    <li><a href="#">{{ 'footer.Partnerships' | translate }}</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-sm-12 col-container">
+                <h3 class="color-primary">{{ 'footer.Help' | translate }}</h3>
+                <ul class="list-unstyled">
+                    <li><a href="#">{{ 'footer.HelpAndSupport' | translate }}</a></li>
+                    <li><a href="#">{{ 'footer.SeeFaqs' | translate }}</a></li>
+                    <li><a href="#">{{ 'footer.Payments' | translate }}</a></li>
+                    <li><a href="#">{{ 'footer.DataProtection' | translate }}</a></li>
+                    <li><a href="#">{{ 'footer.Cookies' | translate }}</a></li>
+                    <li><a href="#">{{ 'footer.ContactUs' | translate }}</a></li>
+                    <li>
+                        <a href="https://stripe.com/fr" target="_blank"><small class="text-muted small-text-block">{{ 'footer.SecuredPayments' | translate }}</small>
+                        <span [inlineSVG]="'assets/media/logos/stripe-wordmark-blurple.svg'" class="svg-icon-h-48" alt=""></span>
+                    </a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="col-md-3 col-sm-12 col-container">
+                <h3 class="color-primary">{{ 'footer.Community' | translate }}</h3>
+                <ul class="list-unstyled">
+                    <li><a href="#">{{ 'footer.Events' | translate }}</a></li>
+                    <li><a href="#">{{ 'footer.CommunityStandars' | translate }}</a></li>
+                    <li><a href="#">{{ 'footer.InviteAFriend' | translate }}</a></li>
+                    <li><a [routerLink]="'/signup'">{{ 'footer.BecomeAProvider' | translate }}</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="center-vh row">
+            <div class="col">
+                <div>
+                    <hr>
+                </div>
+            </div>
+            <div class="col">
+                <div>
+                    <span style="margin-right: 1rem !important;" class="color-primary"> {{ 'SocialNetworkTitle' |
+                        translate}}</span>
+                    <a class="icon-rsx" target="_blank" href="https://www.instagram.com/golden_networks/"><img
+                            height="30" width="30" alt="instagram" decoding="async" loading="lazy" sizes="100vw"
+                            src="assets/media/logos/footer-instagram.svg"></a>
+                    <a class="icon-rsx" target="_blank" href="https://www.facebook.com/goldennetworks"><img height="22" width="22" alt="facebook" decoding="async" loading="lazy" sizes="100vw"
+                            src="assets/media/logos/footer-facebook.png"></a>
+                    <a class="icon-rsx" target="_blank" href="https://www.linkedin.com/company/golden-networks/"><img
+                            height="29" width="30" alt="linkedin" decoding="async" loading="lazy" sizes="100vw"
+                            src="assets/media/logos/footer_linkedin.svg"></a>
+                    <a class="icon-rsx" target="_blank" href="https://www.youtube.com/channel/UCKGiUz64-SuxSK1oEWZeggQ"><img
+                            height="27" width="24" alt="youtube" decoding="async" loading="lazy" sizes="100vw"
+                            src="assets/media/logos/footer-youtube.png" /></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright-container row">
+            <div class="col">
+                <span>© {{ today | date: 'Y'}} MGA Plateform</span>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</section>

@@ -1,0 +1,50 @@
+<!-- Sub menu-->
+<div class="sub-menu-desktop" *ngIf="menuItem">
+    <div class="sub-menu-container">
+        <div class="menu-content-wrapper scroll-styled">
+            <div>
+                <div class="menu-content-container" appClickOutside
+                (clickOutside)="onClose.emit()">
+                    <div class="menu-content-container-center" [class.container]="!menuItem.dropdowns?.length">
+                        <!-- List of sub menus -->
+                        <div class="menu-content-container-center-left" *ngIf="menuItem?.dropdowns">
+                            <div class="menu-content-container-items first-tier">
+                                <ul class="list list-unstyled">
+                                    <li *ngFor="let submenu of menuItem.dropdowns" Class="rtg-menu-item"
+                                        [class.menu-item-active]="isSelected(submenu, selectedSubMenu)"
+                                        (click)="selectSubMenu(submenu)">
+                                        <a>
+                                            {{submenu.name | translate}}
+                                            <small *ngIf="submenu?.options?.length" class="float-end">
+                                                &nbsp;<i class="fa-solid fa-chevron-right text-muted"></i>
+                                            </small>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Left side of sub-menus -->
+                        <ng-container *ngIf="selectedSubMenu || menuItem?.options">
+                            <div class="menu-content-container-center-right"
+                                *ngFor="let submenuOptions of getMenuOptions()">
+                                <ul class="list list-unstyled">
+                                    <li *ngFor="let submenuOption of submenuOptions"
+                                        [ngClass]="submenuOption.type == 'link' ? 'rtg-submenu-item' : 'rtg-menu-item-header'">
+                                        <a href="{{submenuOption.url}}">
+                                            <!-- icon -->
+                                            <span *ngIf="submenuOption.icon">
+                                                <i [ngClass]="submenuOption.icon"></i>&nbsp;&nbsp;
+                                            </span>
+                                            <!-- label -->
+                                            {{submenuOption.label}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

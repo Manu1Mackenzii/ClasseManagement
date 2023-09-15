@@ -1,0 +1,17 @@
+.scroll-styled {
+    overflow: scroll;
+}
+
+.scroll-styled::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+.scroll-styled::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px var(--bg-2) !important;
+}
+
+
+.scroll-styled::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)  !important;
+}

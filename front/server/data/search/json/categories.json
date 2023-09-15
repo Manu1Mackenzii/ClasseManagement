@@ -1,0 +1,37 @@
+[
+    {
+        "id": "1",
+        "name": "Coaching vocal",
+        "translationCode": "category.CoachingVocal",
+        "description": "category.Description",
+        "img": "../../../assets/img/voiceover-2x.jfif"
+    },
+    {
+        "id": "1",
+        "name": "Cours de piano",
+        "translationCode": "category.CoursPiano",
+        "description": "category.Description",
+        "img": "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"
+    },
+    {
+        "id": "1",
+        "name": "Traiteur",
+        "translationCode": "category.Traiteur",
+        "description": "category.Description",
+        "img": "https://images.unsplash.com/photo-1598386149320-e33c171b41a1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=764&q=80"
+    },
+    {
+        "id": "1",
+        "name": "Coiffeur",
+        "translationCode": "category.Coiffeur",
+        "description": "category.Description",
+        "img": "https://images.unsplash.com/photo-1531651008558-ed1740375b39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    },
+    {
+        "id": "1",
+        "name": "Sonorisation",
+        "translationCode": "category.Sonorisation",
+        "description": "category.Description",
+        "img": "../../../assets/img/voiceover-2x.jfif"
+    }
+]

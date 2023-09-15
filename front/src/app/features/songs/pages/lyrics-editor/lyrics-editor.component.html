@@ -1,0 +1,190 @@
+<div class="container pt-menu pt-3">
+
+    <div class="d-flex w-100 align-items-center justify-content-between pt-3 mb-3">
+        <h3 class="title mt-3">Editeur de chant</h3>
+        <div>
+            <button class="btn btn btn-light me-2" (click)="previewLyrics()">
+                <i class="fa-solid fa-eye"></i>&nbsp;&nbsp;Prévisualiser</button>
+            <button class="btn btn btn-dark" (click)="save()">Enregistrer</button>
+        </div>
+    </div>
+
+    <!-- Info section form::begin -->
+    <div class="card card-body w-100">
+        <span class="d-block mb-3 text-sm text-muted">Informations</span>
+        <div class="mb-3 row">
+            <div class="col-6">
+                <div class="mb-3">
+                    <label class="form-label text-muted text-sm" for="">Titre *</label>
+                    <input type="text" class="form-control" placeholder="Titre du chant" [(ngModel)]="song.title">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label class="form-label text-muted text-sm" for="">Auteur *</label>
+                    <input type="text" class="form-control" placeholder="Auteurs du chant" [(ngModel)]="song.author">
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-6">
+                <div class="mb-3">
+                    <label class="form-label text-muted text-sm" for="">Tonalité originale *</label>
+                    <!-- This can be a seperate component, since select key will be used everywhere -->
+                    <select class="form-select" placeholder="Tonalité originale" [(ngModel)]="song.originalKey">
+                        <option [ngValue]="key" *ngFor="let key of scaleService.chromaticScale; let i = index;">
+                            <span [innerHTML]="key.toString()"></span>
+                            <span *ngIf="key.hasAlteration()"> /
+                                <span [innerHTML]="scaleService.getEquivalentFlatNote(i)"></span>
+                            </span>
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label class="form-label text-muted text-sm" for="">Langue originale *</label>
+                    <select class="form-select" placeholder="Tonalité originale" [(ngModel)]="song.originalLang">
+                        <option [value]="lang" *ngFor="let lang of lyricService.getLangOptions()">
+                            {{lang}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <!-- Info section form::end -->
+
+    <!-- Song Parts section::begin -->
+    <div class="song-section mt-3">
+        <div class="card card-body w-100 mb-3" *ngFor="let part of song.parts">
+            <div class="d-flex align-items-center justify-content-between">
+                <!-- SELECT Type part / Part title -->
+                <div class="me-3">
+                    <ng-container *ngIf="part.editMode">
+                        <label class="col-form-label text-muted text-sm me-3" for="">Type</label>
+                        <select class="form-select-sm" placeholder="Type" [(ngModel)]="part.type">
+                            <option *ngFor="let partType of lyricService.getPartOptions()" [value]="partType">
+                                {{ partType }}
+                            </option>
+                        </select>
+                    </ng-container>
+                    <!-- Non edit mode for type -->
+                    <ng-container *ngIf="!part.editMode">
+                        <span class="lyrics-part-title">[{{part.type}}]</span>
+                    </ng-container>
+                </div>
+                <!-- LYRICS / CHORDS GRID MODES -->
+                <div class="">
+                    <ng-container *ngTemplateOutlet="modeSwitcherTpl"></ng-container>
+                </div>
+                <!-- ACTIONS on parts -->
+                <div class="">
+                    <ng-container [ngSwitch]="part.editMode">
+                        <!-- Edit mode : ON -->
+                        <ng-container *ngSwitchCase="true">
+                            <button class="btn btn-sm btn-light text-xs ms-2" (click)="cancelEdit(part)">
+                                <i class="fa-solid fa-xmark"></i>&nbsp;&nbsp;Annuler</button>
+                            <button *ngIf="part.editMode" class="btn btn-sm btn-light text-xs ms-2"
+                                (click)="savePart(part)">
+                                <i class="fa-solid fa-check-double"></i>&nbsp;&nbsp;Enregistrer</button>
+                        </ng-container>
+                        <!-- Edit mode : OFF -->
+                        <ng-container *ngSwitchCase="false">
+                            <button class="btn btn-sm btn-light text-xs ms-2" (click)="editPart(part)">
+                                <i class="fa-solid fa-pencil"></i>&nbsp;&nbsp;Modifier</button>
+                            <button class="btn btn-sm btn-light text-xs ms-2" (click)="editChords(part)">
+                                <i class="fa-solid fa-music"></i>&nbsp;&nbsp;Editeur d'accords</button>
+                            <button class="btn btn-sm btn-light text-xs ms-2" (click)="duplicatePart(part)">
+                                <i class="fa-solid fa-clone"></i>&nbsp;&nbsp;Dupliquer</button>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </div>
+            <!-- List of lines -->
+            <div class="part-lines-container mt-3">
+
+                <!-- If on edit mode -->
+                <ng-container *ngIf="part.editMode; else lyricsViewer">
+                    <!-- If on Edit Chord Mode -->
+                    <div *ngIf="part.chordEditMode; else simpleLyricsTextarea" class="row">
+                        <div class="col">
+                            <pre (input)="onChordTextUpdated($event.target, part)" contenteditable="true"
+                                [innerHTML]="part.textWithChords | chordHighlighter"
+                                class="form-control chord-editor-pre">
+                            </pre>
+
+                            <!-- List of chords grid -->
+                            <div class="chord-grid-editor d-flex flex-wrap">
+                                <span class="chord-card" *ngFor="let chord of part.getChordList()">
+                                    {{chord}}
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <!-- preview chords -->
+                        <div class="col">
+                            <div class="chord-editor-preview">
+                                <app-lyrics-viewer [songPart]="part.previewPart"></app-lyrics-viewer>
+                            </div>
+                        </div>
+                    </div>
+                    <ng-template #simpleLyricsTextarea>
+                        <textarea [(ngModel)]="part.text" cols="20" rows="10" class="form-control"></textarea>
+                    </ng-template>
+                </ng-container>
+
+                <!-- Preview -->
+                <ng-template #lyricsViewer>
+                    <div class="row">
+                        <div class="col">
+                            <app-lyrics-viewer [lyrics]="part.text"></app-lyrics-viewer>
+                        </div>
+                        <div class="col" *ngIf="part.lines.length">
+                            <div class="chord-editor-preview">
+                                <app-lyrics-viewer [songPart]="part"></app-lyrics-viewer>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+
+            </div>
+        </div>
+        <br>
+        <!-- Adding part section -->
+        <ng-container *ngTemplateOutlet="addCard; context: partContext"></ng-container>
+    </div>
+    <br>
+    <br>
+</div>
+
+<!-- Templates -->
+
+<ng-template #addCard let-title="title" let-action="action" let-entity="entity">
+    <div (click)="add(action, entity)"
+        class="add-song-part d-flex align-items-center justify-content-center cursor-pointer">
+        <div class="text-center p-3">
+            <i class="bi bi-plus-circle-fill icon-3x text-muted"></i>
+            <br>
+            <span class="d-block">{{ title }}</span>
+        </div>
+    </div>
+</ng-template>
+
+
+<!-- Mode switcher -->
+<ng-template #modeSwitcherTpl>
+    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+        <label class="btn btn-outline-primary" for="btnradio1">Paroles</label>
+
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+        <label class="btn btn-outline-primary" for="btnradio2">Avec accords</label>
+
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+        <label class="btn btn-outline-primary" for="btnradio3">Grille</label>
+    </div>
+</ng-template>

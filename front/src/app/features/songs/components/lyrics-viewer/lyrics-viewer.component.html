@@ -1,0 +1,17 @@
+<div>
+    <!-- Without chords -->
+    <p *ngIf="lyrics" class="lyrics-part-text p-2" [innerHTML]="lyrics"></p>
+
+    <!-- With chords -->
+    <div *ngIf="songPart">
+        <div *ngFor="let lyricLine of songPart.lines">
+            <span class="song-line d-inline-block" *ngFor="let segment of lyricLine.segments">
+                <span class="d-block" *ngIf="segment.chordText">
+                    <span class="segment-chord" [innerHTML]="segment.chordText"></span>&nbsp;
+                </span>
+                <span class="segment-lyrics" [innerHTML]="segment.lyricSegment">
+                </span>
+            </span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="container pt-menu">
+
+    <div class="tabs mb-3 mt-3">
+        <span class="tab-link text-muted" [class.tab-link-active]="isSelected(CHORDS_TAB)"
+            (click)="setTab(CHORDS_TAB)">ACCORDS</span>
+        <span class="tab-link text-muted" [class.tab-link-active]="isSelected(SCALES_TAB)"
+            (click)="setTab(SCALES_TAB)">GAMMES</span>
+    </div>
+
+    <div class="pt-3">
+
+        <ng-container [ngSwitch]="selectedTab">
+            <!-- accords majeurs & mineurs -->
+
+            <ng-container *ngSwitchCase="CHORDS_TAB">
+                <h3 class="title mt-3">Tableau des accords majeurs et mineurs (avec Dièse)</h3>
+
+                <table class="table table-striped table-bordered mt-3">
+                    <thead>
+                        <tr>
+                            <th>Note</th>
+                            <th>Accord majeur</th>
+                            <th>Accord mineur</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let note of scaleService.chromaticScale">
+                            <td><span [innerHTML]="note.toString()"></span></td>
+                            <td>
+                                <span [innerHTML]="scaleService.getMajorChord(note)"></span>
+                            </td>
+                            <td>
+                                <span [innerHTML]="scaleService.getMinorChord(note)"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </ng-container>
+
+            <!-- Gammes majeurs -->
+            <ng-container *ngSwitchCase="SCALES_TAB">
+                <h3 class="title mt-3">Tableau des gammes majeures</h3>
+                <table class="table table-striped table-bordered mt-3">
+                    <thead>
+                        <tr>
+                            <th>Note</th>
+                            <th>Gamme majeur (avec les Dièses #)</th>
+                            <th>Gamme majeur (avec les Bémols b)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let note of scaleService.chromaticScale; let i = index;">
+                            <td><span [innerHTML]="note.toString()"></span></td>
+                            <td>
+                                <span [innerHTML]="scaleService.getMajorScale(note)"></span>
+                            </td>
+                            <td>
+                                <span
+                                    [innerHTML]="scaleService.getMajorScale(scaleService.chromaticScaleFlat[i], true)"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </ng-container>
+        </ng-container>
+<br>
+    </div>
+</div>

@@ -1,0 +1,165 @@
+<html lang="en">
+<head>
+    <!-- <meta> tags> -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>CONFIRMATION DE CRÉATION DE COMPTE INSTALLATEUR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <title>Book Face</title>
+</head>
+
+<style>
+    :root {
+        --primary-color: #000;
+        --dark-color: #000;
+    }
+
+    body {
+    font-size: 16px;
+    padding: 1em;
+    max-width: 992px;
+    margin: 0 auto;
+    }
+
+    .header {
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1em;
+    }
+
+    img.logo{
+        width: 200px;
+        object-fit: cover;
+    }
+
+    .nav__right {
+        display: block;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .nav__right a {
+        color: var(--primary-color);
+        font-size: 2em;
+        font-weight: 600;
+    }
+
+    .social {
+        text-align: end;
+    }
+
+
+    .social img {
+    height: 16px
+    }
+
+    .content {
+        padding: 1em 0;
+    }
+    .stores__icon {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .stores__icon img {
+        height: 60px;
+    }
+
+    .signature {
+        text-align: end;
+    }
+
+    .footer {
+        text-align: center;
+    }
+
+    .apple {
+        height: 85px !important;
+        margin-top: -15px;
+    }
+
+    @media (min-width: 30em) {
+        .header {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+</style>
+
+<body>
+    <div class="header">
+        <table border="0" cellpadding="30" cellspacing="0" width="100%">
+            <tbody>
+                <tr>
+                    <td>
+                    <img class="logo" src="https://firebasestorage.googleapis.com/v0/b/ilena-26080.appspot.com/o/Ilena%2FIlena---LOGOTYPE_LOGO-resize.png?alt=media&token=3cdb7150-4ef2-4ec6-bbfb-8a8123817338" alt="">
+                    </td>
+                    <td style="font-size: 0; line-height: 0;" width="200"> </td>
+                    <td style="text-align: end;">
+                    <div class="nav__right">
+                    <div style="text-align: end"><a href="https://ilenatech.fr/">www.ilenatech.fr</a></div>
+                        <div class="social" style="text-align: end;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/87/87390.png" alt="">
+                        <img src="https://cdn-icons-png.flaticon.com/512/59/59439.png" alt="">
+                        <img src="https://logowik.com/content/uploads/images/761_twitter.jpg" alt="">
+                        <img src="https://cdn-icons-png.flaticon.com/512/61/61109.png" alt="">
+                        </div>
+                    </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="content">
+    <p>Bonjour <strong>{{firstName}} {{lastName}},</strong></p>
+    <p>Bienvenue parmi nous. <br/>
+        Suite à votre commande votre compte Ilena a bien été crée, voici vos identifiants :</p>
+    <p>
+        Identifiant: <span><strong>{{email}}</strong></span><br/>
+        Mot de passe: <strong>{{password}}</strong>
+    </p>
+
+    <p>Téléchargez dès à présent notre application pour installer vos panneaux :</p>
+      <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://play.google.com/store/apps/details?id=com.lamabano.ilenatechpro">
+              <img height="60px" src="https://firebasestorage.googleapis.com/v0/b/ilena-26080.appspot.com/o/Ilena%2Fgoogle-play-badge.png?alt=media&token=ccd6d1da-3d08-42e1-969c-b2c5b0a789c2" alt="">
+            </a>
+          </td>
+          <td>
+            <a href="https://apps.apple.com/us/app/ilena-tech-pro/id1610860785">
+              <img class="apple" src="https://firebasestorage.googleapis.com/v0/b/ilena-26080.appspot.com/o/Ilena%2Fapp-store-png-logo-33116.png?alt=media&token=011980c7-8876-44ff-ba34-cc80986694ad" alt="">
+            </a>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <p>Nous restons à votre disposition pour toutes informations. <br/> À très vite,</p>
+
+    <div class="signature">
+        <h6>L’équipe Ilena Tech</h6>
+    </div>
+    </div>
+
+    <div class="footer">
+    <p>
+        <strong>Ilena Tech,</strong> 9 rue du Gué 52140 Is-en-Bassigny <br/> 
+        <strong>E.mail :</strong> contact@ilenatech.fr <strong>Téléphone :</strong> 06.64.46.48.36
+    </p>
+    <p>La contrefaçon se définit comme la reproduction, l’imitation ou l’utilisation totale ou partielle d’undroit de propriété intellectuelle sans l’autorisation
+        de son propriétaire</p>
+    <p>SAS au capital de 10 000 euros / SIRET : 909 277 493 00013 RCS CHAUMONT</p>
+    </div>
+</body>
+</html>

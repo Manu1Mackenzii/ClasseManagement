@@ -1,0 +1,71 @@
+<div class="mat-mdc-dialog-container">
+    <mat-card-title>
+        <h2 mat-dialog-title>Gestion des étudiants </h2>
+    </mat-card-title>
+    <mat-dialog-content>
+        <form [formGroup]="form">
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Prénom</label>
+                <input type="text" class="form-control" maxlength="15" formControlName="firstname" placeholder="Prénom" required>
+                <div *ngIf="form.get('firstname')?.invalid && (form.get('firstname')?.dirty || form.get('firstname')?.touched)">
+                    <div *ngIf="form.get('firstname')?.errors?.required">Le prénom est requis.</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Nom de famille</label>
+                <input type="text" class="form-control" maxlength="15" formControlName="lastname" placeholder="Nom de famille" required>
+                <div *ngIf="form.get('lastname')?.invalid && (form.get('lastname')?.dirty || form.get('lastname')?.touched)">
+                    <div *ngIf="form.get('lastname')?.errors?.required">Le nom de famille est requis.</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlInput1">E-mail</label>
+                <input type="email" class="form-control" maxlength="30" formControlName="email" placeholder="mgaprof@gmail.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+                <div *ngIf="form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched)">
+                    <div *ngIf="form.get('email')?.errors?.required">L'e-mail est requis.</div>
+                    <div *ngIf="form.get('email')?.errors?.pattern">L'e-mail n'est pas valide.</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Adresse</label>
+                <input type="text" class="form-control" maxlength="30" formControlName="address" placeholder="9 allée des paches 75490 paris" required>
+                <div *ngIf="form.get('address')?.invalid && (form.get('address')?.dirty || form.get('address')?.touched)">
+                    <div *ngIf="form.get('address')?.errors?.required">L'adresse est requise.</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Contact</label>
+                <input type="tel" class="form-control" maxlength="10" formControlName="phone" placeholder="07 78 97 67 56" pattern="[0-9]{10}" required>
+                <div *ngIf="form.get('phone')?.invalid && (form.get('phone')?.dirty || form.get('phone')?.touched)">
+                    <div *ngIf="form.get('phone')?.errors?.pattern">Le numéro de téléphone n'est pas valide.</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Instruments</label>
+                <div *ngFor="let instrument of instruments; let i = index">
+                    <label>
+                    <input type="checkbox" [checked]="selectedInstruments.includes(instrument.label)" (change)="toggleInstrument(instrument.label)" required>
+                    {{ instrument.label }}
+                  </label>
+                </div>
+                <div *ngIf="form.get('instruments')?.invalid && (form.get('instruments')?.dirty || form.get('instruments')?.touched)">
+                    <div *ngIf="form.get('instruments')?.errors?.required">Sélectionnez au moins un instrument.</div>
+                </div>
+            </div>
+
+        </form>
+    </mat-dialog-content>
+    <mat-card-footer>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="save()">Enregistrer</button>
+            <button type="button" class="btn btn-light" (click)="cancel()">Fermer</button>
+        </div>
+    </mat-card-footer>
+</div>
+
+<!-- [disabled]="!form.valid" -->

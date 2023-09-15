@@ -1,0 +1,52 @@
+<div class="container">
+    <div style="text-align: center">
+        <h1>Affection de classe</h1>
+    </div>
+    <h2>Liste de la classe</h2>
+    <label>Nom de la classe:</label>
+    <p>{{ selectedClassroom.label }}</p>
+
+    <form [formGroup]="form">
+        <div class="popup">
+            <div>
+                <label for="selectedStudent">Ajouter</label>
+                <select class="select" formControlName="students" placeholder="Eleves">
+              <ng-container *ngFor="let student of students" >
+                <option [value]="student.firstname + ' ' + student.lastname " [id]="student.id">
+                    {{ student.firstname }} {{ student.lastname }} - {{ student.instruments }}
+                </option>
+              </ng-container>
+            </select>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" (click)="save( )" class="btn btn-primary">
+                Ajouter un élève
+               </button>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Liste des élèves de la classe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let student of selectedClassroom.students">
+
+                        <td>{{ student }} </td>
+                        <td><a (click)="deleteStudent(student)" class="btn btn-danger">Supprimer</a></td>
+
+                    </tr>
+                    <!-- <label>Liste des élèves de la classe: </label>
+                    <p>{{ selectedClassroom.students }}</p> -->
+
+                </tbody>
+            </table>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="cancel()">Fermer</button>
+
+            </div>
+        </div>
+    </form>
+</div>

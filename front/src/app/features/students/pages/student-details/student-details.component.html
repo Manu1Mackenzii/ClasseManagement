@@ -1,0 +1,86 @@
+<div *ngIf="student">
+    <div class="headaction">
+        <div class="usertitle">
+            <i class="fa-solid fa-user"></i>
+            &nbsp;Détails de l'étudiant
+        </div>
+        <div class="btaction">
+            <button type="button" class="btn btn-primary" (click)="openform(student)">
+                <i class="fa-solid fa-edit"></i>
+                Modifier
+            </button>
+            &nbsp;
+            <button routerLink="../" type="button" class="btn btn-light">
+                <i class="fa-solid fa-arrow-left"></i>
+                Retour
+            </button>
+        </div>
+
+
+    </div>
+
+
+    <div class="menu-content-container-center container">
+        <div class="menu-content-container-center-right ng-star-inserted">
+            <div class="list list-unstyled">
+                <div class="detail">
+                    <div style="display: flex;">
+                        <i class="fa-solid fa-user"></i>&nbsp;
+                        <label>Nom:</label>
+                    </div>
+                    <p>{{ student.lastname }}</p>
+                </div>
+
+                <div class="detail">
+                    <div style="display: flex;">
+                        <i class="fa-solid fa-user"></i>&nbsp;
+                        <label>Prénom(s):</label>
+                    </div>
+                    <p>{{ student.firstname }}</p>
+                </div>
+
+                <div class="detail">
+                    <div style="display: flex;">
+                        <i class="fa-solid fa-music"></i>&nbsp;
+                        <label>Instruments:</label>
+                    </div>
+                    <p>{{ student.instruments }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-content-container-center-right ng-star-inserted">
+            <div class="list list-unstyled">
+
+                <div class="detail">
+                    <div style="display: flex;">
+                        <i class="fa-solid fa-address-card"></i>&nbsp;
+                        <label>Adresse:</label>
+                    </div>
+                    <p>{{ student.address }}</p>
+                </div>
+
+                <div class="detail">
+                    <div style="display: flex;">
+                        <i class="fa-solid fa-phone"></i>&nbsp;
+                        <label>Contact:</label>
+                    </div>
+                    <p>{{ student.phone }}</p>
+                </div>
+
+                <div class="detail">
+                    <div style="display: flex;">
+                        <i class="fa-solid fa-mail-bulk"></i>&nbsp;
+                        <label>E-mail:</label>
+                    </div>
+                    <p>{{ student.email }}</p>
+                </div> 
+
+            </div>
+        </div>
+    </div>
+
+
+    <hr style=" width: 80%; margin-left: 8%;">
+
+</div>

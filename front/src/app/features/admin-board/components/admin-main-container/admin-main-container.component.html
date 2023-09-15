@@ -1,0 +1,14 @@
+<!-- Sidebar -->
+
+<mat-sidenav-container class="material-sidenav">
+    <mat-sidenav mode="side" opened>
+        <div class="pt-menu">
+            <app-sidebar [defaultMenuId]="defaultMenu" [menuOptions]="menuLinks"></app-sidebar>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="container-fluid h-100 pt-menu">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

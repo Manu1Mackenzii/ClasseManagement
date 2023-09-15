@@ -1,0 +1,23 @@
+.section-title {
+    position: relative;
+    padding-bottom: var(--padding-8);
+}
+
+.section-title::after {
+    content: '';
+    height: 4px;
+    width: 4%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: var(--color-sfr-red);
+}
+
+.app-logo {
+    font-size: 1.8rem;
+    line-height: 1.8;
+    padding: 0px !important;
+    font-family: var(--font-family-montserrat) !important;
+    font-weight: 600;
+    color: var(--color-navbar-link) !important;
+}

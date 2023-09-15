@@ -1,0 +1,13 @@
+<div class="card custom-card cursor-pointer">
+    <img src="{{coverImageUrl}}" class="card-img-top hand" (click)="goToDetails()">
+    <div class="card-body">
+        <h5 class="card-title hand" (click)="goToDetails()">{{title}}</h5>
+    </div>
+    <span id="play-icon">
+        <i *ngIf="isVideo()" class="bi bi-play-circle-fill"></i>
+        <i *ngIf="!isVideo()" class="bi bi-soundwave"></i>
+    </span>
+    <span id="duration-span">
+        {{duration}} min
+    </span>
+</div>

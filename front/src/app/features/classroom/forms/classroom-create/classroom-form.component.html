@@ -1,0 +1,90 @@
+<div class="mat-mdc-dialog-container">
+
+    <mat-card-title>
+        <h2 mat-dialog-title>
+            Classroom Management</h2>
+    </mat-card-title>
+
+    <mat-dialog-content>
+
+
+        <form [formGroup]="form">
+
+            <div>
+                <label for="selectedTeacher">Professeur</label>
+                <select class="select" formControlName="teachers" placeholder="Professeur">
+                  <ng-container *ngFor="let professeur of teachers" >
+                    <option [value]="professeur.firstname + ' ' + professeur.lastname" required>{{ professeur.firstname }} {{ professeur.lastname }}</option>
+                  </ng-container>
+                </select>
+            </div>
+
+            <div>
+                <label for="selectedInstrument">Instruments</label>
+                <select class="select" formControlName="instruments" placeholder="Instruments">
+                  <ng-container *ngFor="let instrument of instruments" required>
+                    <option [value]="instrument.label " *ngIf="instruments.teacher === selectedTeacher">{{ instrument.label }} </option>
+                  </ng-container>
+                </select>
+            </div>
+
+
+
+
+            <div>
+                <label for="label">Nom de classe</label>
+
+                <input type="text" class="form-control" formControlName="label" placeholder="Nom de la classe" required [value]="generateClasseName()" required>
+            </div>
+
+            <div>
+                <label for="capacity">Capacité</label>
+                <input type="number" class="form-control" formControlName="capacity" placeholder="Capacité" required>
+            </div>
+
+            <div>
+                <label for="sceance">Nombres de scéances</label>
+                <input type="number" class="form-control" formControlName="sceance" placeholder="Cours" required>
+            </div>
+
+            <div>
+                <label for="dateDebut">Date de début du cours</label>
+                <input type="date" id="dateDebut" class="form-control" formControlName="dateDebut" placeholder="Date" required>
+
+            </div>
+
+            <div>
+                <label for="dateFin">Date de fin du cours</label>
+                <input type="date" id="dateFin" class="form-control" formControlName="dateFin" placeholder="Date" required>
+
+            </div>
+
+            <div>
+                <label for="coursesStartingTime">Horaire de début du cours</label>
+                <input type="time" id="coursesStartingTime" class="form-control" formControlName="coursesStartingTime" placeholder="Début du cours" required>
+            </div>
+
+            <div>
+                <label for="coursesEndingTime">Horaire de fin du cours</label>
+                <input type="time" id="coursesEndingTime" class="form-control" formControlName="coursesEndingTime" placeholder="Fin du cours" required>
+
+            </div>
+
+            <div *ngIf="form.errors?.heuresInvalides">
+                La date et l'heure de fin doivent être supérieures à la date et l'heure de début.
+            </div>
+
+        </form>
+
+    </mat-dialog-content>
+    <mat-card-footer>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="save()" >Enregistrer
+        
+</button>
+            <button type="button" class="btn btn-light" (click)="cancel()">Fermer</button>
+        </div>
+    </mat-card-footer>
+</div>
+
+<!-- [disabled]="!form.valid" -->

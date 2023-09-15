@@ -1,0 +1,94 @@
+/**
+* Style global sur les textes
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.title,
+.title-lg,
+.title-md {
+    // font-family: var(--root-font-family-roboto) !important;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.title-lg {
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+.title-md {
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.title-h2 {
+    font-size: var(--font-size-h2);
+}
+
+.text-sm {
+    font-size: var(--font-size-sm);
+}
+
+.no-decorators {
+    text-decoration: none;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.text-group {
+    width: 100%;
+    background: rgba(235, 240, 240, 0.5);
+    mix-blend-mode: normal;
+    border-radius: 16px;
+    padding: var(--p-2);
+}
+
+.text-group-item:not(:last-child) {
+    border-bottom: 1px solid rgba(207, 219, 213, 0.6);
+}
+
+.text-group-item {
+    padding-top: var(--root-p-1);
+    padding-bottom: var(--root-p-1);
+    label {
+        display: block;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 18px;
+        color: #5D5D5B;
+    }
+    span {
+        display: block;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 21px;
+        color: #000000;
+        margin-top: 5px;
+    }
+}
+
+.text-xs {
+    font-size: 0.8rem;
+}
+
+.highlighted-chord-text {
+    padding-right: 0.1px;
+    color: #63e6be;
+    // background-color: chocolate;
+    cursor: pointer;
+}
+
+.highlighted-chord-text:hover {
+    background-color: rgba(#63e6be, 0.2);
+}
