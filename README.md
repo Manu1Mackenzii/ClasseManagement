@@ -1,8 +1,8 @@
 # ClasseManagement
-Projet  (typescript et node JS):
-Au moins 3 microservices
-Une API Gateway en GraphQL
-Gestion de l’authentification
+# Projet  (typescript et node JS):
+# Au moins 3 microservices
+# Une API Gateway en GraphQL
+# Gestion de l’authentification
 Utiliser notions de cours
 
 Permet de se connecter / déconnecter en faisant appel au service d'authentification
