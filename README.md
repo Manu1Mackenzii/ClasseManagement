@@ -1,4 +1,4 @@
-# ClasseManagement:  Projet  (typescript et node JS):
+# ClasseManagement:  Projet  (typescript , NestJs, NodeJs, mongoDB):
 - Au moins 3 microservices
 - Une API Gateway en GraphQL
 - Gestion de l’authentification
